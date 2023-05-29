@@ -10,7 +10,7 @@
       <div class="field">
         <label class="label" for="account">Initial Amount</label>
         <div class="control">
-          <input  class="input is-small custom-input"
+          <input  class="input is-small custom-input" type="number"
            id="initialamount" [(ngModel)]="initialamount"           
            pattern="^-?[0-9]\d*(\.\d+)?$" 
            [ngClass]="{ 'is-invalid': initialamount < 100 }">
