@@ -29,13 +29,13 @@ export class AccountService {
   }
 
   deposit(userId: number, accountId: number, amount: number): Observable<any> {
-    const url = `${this.apiUrl}/api/Account/Deposit`;
+    const url = `${this.apiUrl}/api/Transaction/Deposit`;
     const body = { userId, accountId, amount };
     return this.http.post<any>(url, body);
   }
 
   withdraw(userId: number, accountId: number, amount: number): Observable<any> {
-    const url = `${this.apiUrl}/api/Account/Withdraw`;
+    const url = `${this.apiUrl}/api/Transaction/Withdraw`;
     const body = { userId, accountId, amount };
     return this.http.post<any>(url, body);
   }
