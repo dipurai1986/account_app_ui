@@ -16,6 +16,8 @@ export class AppComponent {
   successMessage:string='';
   transactionType: string = '';
   userid:number=100;
+  initialamount:number=100;
+  isinitialamountValid:boolean=true
 
   constructor(private accountService: AccountService) { }
 
@@ -39,7 +41,11 @@ export class AppComponent {
   }
 
   createAccount(): void {
-    this.accountService.createAccount(this.userid) 
+    if(this.initialamount<100){
+      this.isinitialamountValid=false;
+      return;
+    }
+    this.accountService.createAccount(this.userid,this.initialamount) 
       .subscribe(
         response => {
         

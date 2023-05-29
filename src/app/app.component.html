@@ -7,7 +7,19 @@
   </div>
   <div class="row">
     <div class="column">
+      <div class="field">
+        <label class="label" for="account">Initial Amount</label>
+        <div class="control">
+          <input  class="input is-small custom-input"
+           id="initialamount" [(ngModel)]="initialamount"           
+           pattern="^-?[0-9]\d*(\.\d+)?$" 
+           [ngClass]="{ 'is-invalid': initialamount < 100 }">
+           <div *ngIf="!isinitialamountValid" class="invalid-feedback" style="color:red">Amount must be greater than or equal to 100 $.</div>
+        </div>
+      </div>
       <button class="button is-primary mb-3" (click)="createAccount()"><i class="fas fa-plus"></i> Create Account</button>
+     
+    
     </div>
     <div *ngIf="transactionType !== ''" class="row">
       <div class="field">
@@ -41,7 +53,7 @@
     <tbody>
       <tr *ngFor="let account of accounts">
         <td>{{ account.accountNumber }}</td>
-        <td>{{ account.balance }}</td>
+        <td>{{ account.balance }} $</td>
         <td>
           <button class="button is-success is-small" (click)="deposit(account)"><i class="fas fa-arrow-up"></i> Deposit</button>
         </td>

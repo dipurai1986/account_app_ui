@@ -15,12 +15,13 @@ export class AccountService {
     return this.http.get<any>(url);
   }
 
-  createAccount(userId: number) {
+  createAccount(userId: number,initial_balance:number) {
     const headers = new HttpHeaders()
 
    const url = `${this.apiUrl}/api/Account/CreateAccount`; 
     const body = {
-      userId: userId
+      userId: userId,
+      initial_balance:initial_balance
     };
 
     return this.http.post(url, body, { headers });
